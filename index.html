@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ورقة عمل إبداعية - مدخل إلى علم الفيزياء</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0d1b3e;--blue:#1a3a8f;--sky:#2e7dd1;--accent:#f5a623;
+  --teal:#1db8aa;--soft-bg:#f0f6ff;--light-gray:#e8f0fb;
+  --text-dark:#1a1a2e;--text-mid:#3a4a6b;--gold:#e8a020;
+  --green:#27ae60;--red:#e74c3c;--purple:#8e44ad;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Tajawal',sans-serif;background:linear-gradient(135deg,#0d1b3e 0%,#1a3a8f 40%,#2e7dd1 100%);min-height:100vh;color:var(--text-dark);direction:rtl;}
+/* HEADER */
+.page-header{background:linear-gradient(135deg,#0a1628 0%,#1a2d5a 50%,#0d3b6e 100%);padding:30px 20px 20px;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4);}
+.page-header::before{content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;background:radial-gradient(ellipse at 30% 50%,rgba(46,125,209,0.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 30%,rgba(245,166,35,0.1) 0%,transparent 50%);pointer-events:none;}
+.stars{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;}
+.star{position:absolute;background:white;border-radius:50%;animation:twinkle 3s infinite alternate;}
+@keyframes twinkle{0%{opacity:0.2;transform:scale(1);}100%{opacity:0.9;transform:scale(1.3);}}
+.header-inner{max-width:900px;margin:0 auto;position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:16px;}
+.school-logo{width:90px;height:90px;border-radius:50%;border:3px solid var(--accent);padding:4px;background:rgba(255,255,255,0.05);box-shadow:0 0 30px rgba(245,166,35,0.4);object-fit:cover;animation:float 4s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+.header-badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#cce0ff;padding:5px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;backdrop-filter:blur(4px);}
+.badge.gold{background:rgba(245,166,35,0.2);border-color:var(--accent);color:var(--accent);}
+.main-title{font-family:'Cairo',sans-serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;color:#fff;text-align:center;line-height:1.3;text-shadow:0 2px 20px rgba(46,125,209,0.6);}
+.main-title span{color:var(--accent);}
+.subtitle{font-size:1rem;color:#aac4e8;text-align:center;font-weight:500;}
+.teacher-row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+.teacher-chip{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:30px;padding:8px 18px;color:#e0eeff;font-size:0.9rem;font-weight:600;}
+/* STUDENT INFO */
+.student-info-section{max-width:900px;margin:30px auto 0;padding:0 16px;}
+.info-card{background:white;border-radius:20px;padding:24px 28px;box-shadow:0 12px 40px rgba(0,0,0,0.2);display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.info-field{display:flex;flex-direction:column;gap:6px;}
+.info-field label{font-size:0.78rem;font-weight:700;color:var(--blue);}
+.info-field input{border:2px solid var(--light-gray);border-radius:10px;padding:10px 14px;font-family:'Tajawal',sans-serif;font-size:0.95rem;color:var(--text-dark);outline:none;transition:border-color 0.3s;direction:rtl;}
+.info-field input:focus{border-color:var(--sky);}
+/* MAIN */
+.main-content{max-width:900px;margin:24px auto 40px;padding:0 16px;display:flex;flex-direction:column;gap:28px;}
+.section-card{background:white;border-radius:22px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.15);transition:transform 0.3s,box-shadow 0.3s;animation:slideUp 0.5s ease both;}
+.section-card:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(0,0,0,0.2);}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.section-header{padding:20px 28px;display:flex;align-items:center;gap:14px;cursor:pointer;user-select:none;transition:filter 0.2s;}
+.section-header:hover{filter:brightness(1.05);}
+.section-num{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:900;color:white;flex-shrink:0;border:2px solid rgba(255,255,255,0.4);}
+.section-title-wrap{flex:1;}
+.section-title-wrap h2{font-family:'Cairo',sans-serif;font-size:1.15rem;font-weight:800;color:white;margin-bottom:2px;}
+.section-title-wrap p{font-size:0.78rem;color:rgba(255,255,255,0.75);font-weight:500;}
+.bloom-tag{background:rgba(255,255,255,0.2);border-radius:12px;padding:4px 12px;font-size:0.72rem;font-weight:700;color:white;border:1px solid rgba(255,255,255,0.3);}
+.toggle-arrow{font-size:1.2rem;color:rgba(255,255,255,0.8);transition:transform 0.3s;}
+.section-body{padding:24px 28px;display:none;flex-direction:column;gap:20px;border-top:1px solid var(--light-gray);}
+.section-body.open{display:flex;}
+.s1 .section-header{background:linear-gradient(135deg,#1a3a8f,#2e7dd1);}
+.s2 .section-header{background:linear-gradient(135deg,#27ae60,#1abc9c);}
+.s3 .section-header{background:linear-gradient(135deg,#8e44ad,#9b59b6);}
+.s4 .section-header{background:linear-gradient(135deg,#e67e22,#f39c12);}
+.s5 .section-header{background:linear-gradient(135deg,#e74c3c,#c0392b);}
+.s6 .section-header{background:linear-gradient(135deg,#16a085,#1abc9c);}
+.s7 .section-header{background:linear-gradient(135deg,#2c3e50,#4a6fa5);}
+.s8 .section-header{background:linear-gradient(135deg,#6c3483,#a569bd);}
+/* INFO BOXES */
+.info-box{background:var(--soft-bg);border-right:5px solid var(--sky);border-radius:12px;padding:18px 20px;font-size:0.95rem;line-height:1.9;color:var(--text-mid);}
+.info-box h3{color:var(--blue);font-size:1.05rem;font-weight:800;margin-bottom:10px;font-family:'Cairo',sans-serif;}
+.info-box.green{background:#f0faf4;border-color:var(--green);}.info-box.green h3{color:var(--green);}
+.info-box.purple{background:#f8f0ff;border-color:var(--purple);}.info-box.purple h3{color:var(--purple);}
+.info-box.orange{background:#fff8f0;border-color:#e67e22;}.info-box.orange h3{color:#e67e22;}
+.info-box.red{background:#fff0f0;border-color:var(--red);}.info-box.red h3{color:var(--red);}
+.info-box.teal{background:#f0fbfa;border-color:var(--teal);}.info-box.teal h3{color:var(--teal);}
+.highlight{color:var(--blue);font-weight:700;}.hl-green{color:var(--green);font-weight:700;}.hl-orange{color:#e67e22;font-weight:700;}.hl-red{color:var(--red);font-weight:700;}.hl-purple{color:var(--purple);font-weight:700;}
+/* PHENOMENON BUTTONS */
+.phenom-section{background:linear-gradient(135deg,#f0f6ff,#e8f3ff);border-radius:16px;padding:20px;border:2px solid #b0c8f0;}
+.phenom-title{font-family:'Cairo',sans-serif;font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:14px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;}
+.phenom-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:16px;}
+.phenom-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;border:none;border-radius:22px;font-family:'Tajawal',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.3s;box-shadow:0 3px 12px rgba(0,0,0,0.15);color:white;}
+.phenom-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+.phenom-btn.active{outline:3px solid white;transform:translateY(-2px) scale(1.05);}
+.phenom-display{display:none;animation:fadeIn 0.4s ease;}
+.phenom-display.show{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.97);}to{opacity:1;transform:scale(1);}}
+.phenom-img-wrap{position:relative;border-radius:16px;overflow:hidden;}
+.phenom-img-wrap img{width:100%;height:260px;object-fit:cover;display:block;}
+.phenom-caption{background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);position:absolute;bottom:0;left:0;right:0;padding:20px 18px 14px;color:white;}
+.phenom-caption h3{font-family:'Cairo',sans-serif;font-size:1.05rem;font-weight:800;margin-bottom:4px;}
+.phenom-caption p{font-size:0.82rem;opacity:0.9;line-height:1.6;}
+.phenom-caption .phys-tag{display:inline-block;background:rgba(46,125,209,0.8);padding:2px 10px;border-radius:10px;font-size:0.75rem;font-weight:700;margin-bottom:6px;}
+/* EXAMPLES GRID */
+.examples-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;}
+.example-card{background:var(--soft-bg);border-radius:14px;padding:14px;text-align:center;font-size:0.88rem;font-weight:600;color:var(--text-mid);border:2px solid transparent;transition:all 0.3s;}
+.example-card:hover{border-color:var(--sky);transform:scale(1.04);background:white;}
+.example-card .emoji{font-size:2rem;display:block;margin-bottom:6px;}
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+/* ACTIVITY LABELS */
+.activity-label{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:white;padding:5px 14px;border-radius:20px;font-size:0.8rem;font-weight:700;margin-bottom:12px;}
+.activity-label.remember{background:#2e7dd1;}.activity-label.understand{background:#27ae60;}.activity-label.apply{background:#e67e22;}
+/* QUESTION BLOCKS */
+.question-block{background:#f8fbff;border-radius:14px;padding:18px 20px;border:2px solid var(--light-gray);}
+.question-block p{font-size:0.95rem;font-weight:600;color:var(--text-dark);line-height:1.8;margin-bottom:12px;}
+.answer-area{width:100%;min-height:80px;border:2px solid #dde8f8;border-radius:10px;padding:12px 14px;font-family:'Tajawal',sans-serif;font-size:0.93rem;color:var(--text-dark);resize:vertical;outline:none;transition:border-color 0.3s;direction:rtl;background:white;}
+.answer-area:focus{border-color:var(--sky);}
+/* CLASSIFY BUTTONS */
+.classify-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;background:white;border-radius:12px;border:2px solid var(--light-gray);}
+.classify-row span{font-weight:600;flex:1;min-width:150px;font-size:0.9rem;}
+.cls-btn{padding:7px 16px;border:none;border-radius:10px;font-family:'Tajawal',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;transition:all 0.2s;color:white;}
+.cls-btn:hover{transform:scale(1.05);}
+.cls-btn:disabled{opacity:0.5;cursor:default;transform:none;}
+.conv-result{font-size:0.88rem;font-weight:700;min-height:20px;transition:all 0.3s;}
+/* DRAG */
+.drag-bank{display:flex;flex-wrap:wrap;gap:8px;background:#f0f4ff;border-radius:12px;padding:14px;border:2px dashed #b0c8f0;margin-bottom:14px;}
+.drag-word{background:white;border:2px solid var(--sky);border-radius:8px;padding:6px 14px;font-size:0.88rem;font-weight:700;color:var(--blue);cursor:pointer;user-select:none;transition:all 0.2s;box-shadow:0 2px 6px rgba(46,125,209,0.15);}
+.drag-word:hover{background:var(--sky);color:white;transform:scale(1.05);}
+.drag-word.used{opacity:0.4;cursor:not-allowed;}
+.drag-word.selected-word{background:var(--teal);color:white;outline:3px solid var(--navy);}
+.fill-blank{display:block;min-height:38px;border:2px dashed #b0c8f0;margin-bottom:4px;padding:6px 10px;font-size:0.88rem;font-weight:700;color:var(--blue);text-align:center;cursor:pointer;border-radius:10px;transition:all 0.2s;background:white;}
+.fill-blank:hover,.fill-blank.filled{background:#e8f3ff;border-color:var(--sky);}
+/* STYLED TABLE */
+.styled-table{width:100%;border-collapse:collapse;font-size:0.87rem;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);}
+.styled-table thead th{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;padding:13px 12px;text-align:center;font-family:'Cairo',sans-serif;font-weight:700;font-size:0.85rem;}
+.styled-table tbody tr:nth-child(even){background:#f8fbff;}.styled-table tbody tr:nth-child(odd){background:white;}
+.styled-table tbody td{padding:11px 12px;border-bottom:1px solid #e8f0fb;text-align:center;color:var(--text-mid);font-size:0.87rem;line-height:1.7;}
+.styled-table tbody tr:hover{background:#eef5ff;}
+.qty-badge{display:inline-block;background:var(--sky);color:white;border-radius:8px;padding:2px 10px;font-size:0.8rem;font-weight:700;}
+/* CONVERSION SECTIONS */
+.conv-section{background:var(--soft-bg);border-radius:16px;padding:20px;border:2px solid var(--light-gray);}
+.conv-section h4{font-family:'Cairo',sans-serif;font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.conv-hint{font-size:0.82rem;color:#c0580a;font-weight:700;background:#fff3e0;border-radius:8px;padding:10px 14px;margin-bottom:14px;border-right:4px solid #e67e22;line-height:1.8;}
+.conv-exercises{display:flex;flex-direction:column;gap:10px;}
+.conv-ex-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:white;border-radius:10px;padding:10px 14px;border:2px solid #e8f0fb;}
+.conv-ex-row span{font-weight:600;flex:1;min-width:180px;font-size:0.88rem;}
+.conv-ex-row input{width:110px;border:2px solid #dde8f8;border-radius:8px;padding:7px 10px;font-family:'Tajawal',sans-serif;font-size:0.88rem;outline:none;text-align:center;direction:ltr;}
+.conv-ex-row input:focus{border-color:var(--sky);}
+.unit-label{font-size:0.82rem;font-weight:700;color:var(--text-mid);}
+.check-btn{background:var(--sky);color:white;border:none;border-radius:8px;padding:7px 14px;font-family:'Tajawal',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;transition:all 0.2s;}
+.check-btn:hover{background:var(--blue);transform:scale(1.05);}
+.conv-btn{background:var(--sky);color:white;border:none;border-radius:8px;padding:8px 16px;font-family:'Tajawal',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;transition:background 0.3s,transform 0.2s;}
+.conv-btn:hover{background:var(--blue);transform:scale(1.05);}
+/* INSTRUMENT SIMULATOR */
+.instr-select-wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px;background:var(--soft-bg);border-radius:12px;padding:14px;}
+.instr-select-wrap label{font-weight:700;color:var(--navy);font-size:0.95rem;}
+.instr-select{border:2px solid var(--sky);border-radius:10px;padding:9px 14px;font-family:'Tajawal',sans-serif;font-size:0.9rem;outline:none;background:white;color:var(--text-dark);cursor:pointer;}
+.instr-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+.instr-card{background:#f8fbff;border-radius:16px;overflow:hidden;border:2px solid var(--light-gray);transition:all 0.3s;}
+.instr-card:hover{border-color:var(--sky);box-shadow:0 6px 20px rgba(46,125,209,0.15);}
+.instr-card-img{width:100%;height:170px;object-fit:cover;display:block;}
+.instr-card-body{padding:14px;}
+.instr-card-body h5{font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:800;color:var(--navy);margin-bottom:6px;}
+.instr-info{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+.instr-info span{background:var(--soft-bg);border-radius:8px;padding:3px 10px;font-size:0.78rem;font-weight:700;color:var(--blue);}
+.instr-q{font-size:0.83rem;color:var(--text-mid);background:#fff8f0;border-radius:8px;padding:8px;border-right:3px solid #e67e22;margin-top:6px;line-height:1.7;}
+.instr-answer-row{display:flex;align-items:center;gap:8px;margin-top:8px;}
+.instr-answer-row input{flex:1;border:2px solid #dde8f8;border-radius:8px;padding:7px 10px;font-family:'Tajawal',sans-serif;font-size:0.88rem;outline:none;text-align:center;direction:ltr;}
+.instr-answer-row input:focus{border-color:var(--sky);}
+.instr-result{font-size:0.82rem;font-weight:700;margin-top:4px;min-height:18px;}
+/* ARCHIMEDES SIMULATION */
+.arch-sim{background:linear-gradient(135deg,#e8f7ff,#f0fbff);border-radius:18px;padding:22px;border:2px solid #b0d8f5;}
+.arch-objects{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:16px;}
+.arch-obj-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 16px;border:3px solid transparent;border-radius:14px;background:white;cursor:pointer;transition:all 0.3s;font-family:'Tajawal',sans-serif;font-size:0.85rem;font-weight:700;color:var(--navy);box-shadow:0 3px 10px rgba(0,0,0,0.1);}
+.arch-obj-btn:hover{border-color:var(--sky);transform:translateY(-3px);}
+.arch-obj-btn.selected{border-color:var(--teal);background:#f0fbfa;}
+.arch-obj-btn .obj-icon{font-size:2.2rem;}
+.arch-canvas-wrap{display:flex;gap:20px;align-items:flex-start;justify-content:center;flex-wrap:wrap;}
+.arch-canvas-wrap canvas{border-radius:14px;max-width:100%;}
+.arch-steps{flex:1;min-width:220px;}
+.arch-steps h4{font-family:'Cairo',sans-serif;font-size:0.95rem;font-weight:800;color:var(--navy);margin-bottom:12px;}
+.arch-step-row{display:flex;flex-direction:column;gap:4px;margin-bottom:10px;}
+.arch-step-row label{font-size:0.82rem;font-weight:700;color:var(--text-mid);}
+.arch-step-row .step-val{background:white;border:2px solid #dde8f8;border-radius:8px;padding:8px 12px;font-size:0.95rem;font-weight:800;color:var(--blue);text-align:center;}
+.arch-calc-btn{background:linear-gradient(135deg,var(--teal),var(--sky));color:white;border:none;border-radius:10px;padding:10px 20px;font-family:'Cairo',sans-serif;font-size:0.95rem;font-weight:800;cursor:pointer;width:100%;margin-top:8px;transition:all 0.3s;}
+.arch-calc-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(29,184,170,0.4);}
+.arch-answer-row{display:flex;align-items:center;gap:8px;margin-top:8px;}
+.arch-answer-row input{flex:1;border:2px solid var(--sky);border-radius:8px;padding:8px 12px;font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;outline:none;text-align:center;direction:ltr;}
+.arch-final{background:white;border-radius:12px;padding:14px;margin-top:12px;border:2px solid var(--light-gray);font-size:0.9rem;color:var(--blue);font-weight:700;text-align:center;min-height:40px;}
+/* FORMULA CARDS */
+.formula-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;}
+.formula-card{background:white;border-radius:16px;padding:18px 14px;text-align:center;border:2px solid var(--light-gray);transition:all 0.3s;}
+.formula-card:hover{border-color:var(--sky);box-shadow:0 8px 24px rgba(46,125,209,0.15);transform:translateY(-3px);}
+.formula-card .shape-icon{font-size:2.5rem;margin-bottom:10px;display:block;}
+.formula-card h4{font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:800;color:var(--navy);margin-bottom:8px;}
+.formula-card .formula{background:var(--navy);color:var(--accent);border-radius:8px;padding:6px 10px;font-size:0.85rem;font-weight:700;direction:ltr;}
+.formula-card p{font-size:0.8rem;color:var(--text-mid);margin-top:8px;line-height:1.6;}
+/* COMPARE TABLE */
+.compare-table{width:100%;border-collapse:collapse;font-size:0.87rem;border-radius:12px;overflow:hidden;box-shadow:0 3px 16px rgba(0,0,0,0.08);}
+.compare-table th{padding:12px;text-align:center;font-family:'Cairo',sans-serif;font-weight:800;font-size:0.85rem;}
+.compare-table th:first-child{background:var(--navy);color:white;}
+.compare-table th.blue-h{background:#2e7dd1;color:white;}.compare-table th.green-h{background:#27ae60;color:white;}
+.compare-table td{padding:11px 12px;border-bottom:1px solid #e8f0fb;text-align:center;line-height:1.7;}
+.compare-table tr:nth-child(even) td{background:#f8fbff;}.compare-table tr:hover td{background:#eef5ff;}
+/* RUBRIC */
+.rubric-table{width:100%;border-collapse:collapse;font-size:0.85rem;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
+.rubric-table thead th{padding:13px 10px;text-align:center;font-weight:800;font-family:'Cairo',sans-serif;font-size:0.82rem;}
+.rubric-table thead th:first-child{background:var(--navy);color:white;}
+.rubric-table thead th.c4{background:#e74c3c;color:white;}.rubric-table thead th.c3{background:#e67e22;color:white;}
+.rubric-table thead th.c2{background:#27ae60;color:white;}.rubric-table thead th.c1{background:#1a3a8f;color:white;}
+.rubric-table thead th.cw{background:var(--navy);color:var(--accent);}
+.rubric-table tbody td{padding:11px 10px;border-bottom:1px solid #e8f0fb;text-align:center;font-size:0.82rem;vertical-align:top;line-height:1.7;color:var(--text-mid);}
+.rubric-table tbody td:first-child{background:#f8f9ff;font-weight:700;color:var(--navy);font-size:0.85rem;}
+.rubric-table tbody tr:hover td{background:#eef5ff;}
+.score-badge{display:inline-block;width:28px;height:28px;border-radius:50%;font-weight:900;font-size:0.9rem;line-height:28px;text-align:center;color:white;}
+.score-badge.s4{background:#e74c3c;}.score-badge.s3{background:#e67e22;}.score-badge.s2{background:#27ae60;}.score-badge.s1{background:#1a3a8f;}
+/* REFLECTION */
+.reflection-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.reflect-item{background:var(--soft-bg);border-radius:14px;padding:16px 18px;border:2px solid transparent;transition:border-color 0.3s;}
+.reflect-item:hover{border-color:var(--sky);}
+.reflect-item label{display:block;font-size:0.88rem;font-weight:700;color:var(--blue);margin-bottom:10px;}
+.stars-rating{display:flex;gap:6px;flex-direction:row-reverse;justify-content:flex-end;}
+.stars-rating input{display:none;}
+.stars-rating label{font-size:1.8rem;cursor:pointer;color:#ddd;transition:color 0.2s,transform 0.2s;}
+.stars-rating label:hover,.stars-rating input:checked~label,.stars-rating label:hover~label{color:var(--gold);transform:scale(1.2);}
+.emoji-rating{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.emoji-choice{font-size:1.8rem;cursor:pointer;padding:6px;border-radius:10px;border:2px solid transparent;transition:all 0.2s;user-select:none;}
+.emoji-choice:hover,.emoji-choice.selected{border-color:var(--sky);background:#e8f3ff;transform:scale(1.15);}
+/* SCORE TRACKER */
+.score-tracker{background:linear-gradient(135deg,var(--navy),var(--blue));color:white;border-radius:20px;padding:24px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.score-circle{width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,0.15);border:3px solid var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 20px rgba(245,166,35,0.3);}
+.score-circle .score-num{font-size:1.8rem;font-weight:900;line-height:1;color:var(--accent);}
+.score-circle .score-label{font-size:0.7rem;color:#aac4e8;font-weight:600;}
+.score-details{flex:1;}
+.score-details h3{font-family:'Cairo',sans-serif;font-size:1.1rem;font-weight:800;margin-bottom:8px;}
+.score-bar-wrap{background:rgba(255,255,255,0.15);border-radius:20px;height:12px;overflow:hidden;margin-bottom:8px;}
+.score-bar{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--teal),var(--accent));width:0%;transition:width 1s ease;}
+.score-msg{font-size:0.85rem;color:#aac4e8;}
+.submit-btn{display:block;width:100%;padding:16px;background:linear-gradient(135deg,var(--teal),var(--sky));color:white;border:none;border-radius:14px;font-family:'Cairo',sans-serif;font-size:1.1rem;font-weight:800;cursor:pointer;transition:all 0.3s;box-shadow:0 6px 20px rgba(29,184,170,0.4);}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(29,184,170,0.5);}
+/* CERTIFICATE CARD */
+.cert-section{background:linear-gradient(135deg,#fff9f0,#fffdf5);border-radius:22px;padding:28px;border:2px solid #f5c842;text-align:center;}
+.cert-section h3{font-family:'Cairo',sans-serif;font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:6px;}
+.cert-section p{font-size:0.85rem;color:var(--text-mid);margin-bottom:18px;}
+#celebCanvas{border-radius:18px;max-width:100%;box-shadow:0 12px 40px rgba(0,0,0,0.2);display:block;margin:0 auto 16px;}
+.cert-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.download-card-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#e8a020,#f5c842);color:white;border:none;border-radius:12px;padding:13px 28px;font-family:'Cairo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:all 0.3s;box-shadow:0 6px 20px rgba(232,160,32,0.4);}
+.download-card-btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(232,160,32,0.5);}
+.regen-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--sky),var(--blue));color:white;border:none;border-radius:12px;padding:13px 28px;font-family:'Cairo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:all 0.3s;box-shadow:0 6px 20px rgba(46,125,209,0.4);}
+.regen-btn:hover{transform:translateY(-3px);}
+/* NOTIF */
+.notif{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--green);color:white;padding:14px 28px;border-radius:14px;font-weight:700;font-size:0.95rem;z-index:9999;transition:transform 0.4s;box-shadow:0 8px 30px rgba(39,174,96,0.5);}
+.notif.show{transform:translateX(-50%) translateY(0);}
+.notif.wrong{background:var(--red);box-shadow:0 8px 30px rgba(231,76,60,0.5);}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:10000;display:none;align-items:center;justify-content:center;padding:16px;}
+.modal-overlay.open{display:flex;animation:fadeIn 0.3s ease;}
+.modal-box{background:white;border-radius:20px;overflow:hidden;max-width:560px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.modal-box img{width:100%;height:280px;object-fit:cover;display:block;}
+.modal-body{padding:18px 22px;}
+.modal-body h3{font-family:'Cairo',sans-serif;font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:6px;}
+.modal-body p{font-size:0.9rem;color:var(--text-mid);line-height:1.8;}
+.modal-close{display:block;width:100%;background:var(--navy);color:white;border:none;border-radius:10px;padding:10px;font-family:'Cairo',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;margin-top:14px;transition:background 0.3s;}
+.modal-close:hover{background:var(--blue);}
+@media(max-width:600px){.info-card{grid-template-columns:1fr;}.two-col{grid-template-columns:1fr;}.reflection-grid{grid-template-columns:1fr;}.section-body{padding:16px;}.section-header{padding:14px 16px;}.arch-canvas-wrap{flex-direction:column;}}
+@media print{body{background:white;}.section-card{box-shadow:none;border:1px solid #ddd;break-inside:avoid;}.section-body{display:flex!important;}.page-header{background:var(--navy);}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+<div class="stars" id="starsContainer"></div>
+<div class="header-inner">
+  <img src="https://i.postimg.cc/26jnR4Q1/sml-byt-hspr.png" alt="شعار المدرسة" class="school-logo" onerror="this.style.display='none'">
+  <div class="header-badges">
+    <span class="badge gold">🔬 الفيزياء</span>
+    <span class="badge">الصف السابع</span>
+    <span class="badge">الدورة التحضيرية للصف العلمي</span>
+    <span class="badge gold">ورقة عمل إبداعية</span>
+  </div>
+  <h1 class="main-title">مدخل إلى علم <span>الفيزياء</span> 🌌</h1>
+  <p class="subtitle">رحلة تعليمية تفاعلية في عالم الظواهر الطبيعية والمقادير الفيزيائية</p>
+  <div class="teacher-row">
+    <div class="teacher-chip"><span>👩‍🏫</span> المعلمة: منى مصطفى</div>
+    <div class="teacher-chip"><span>📚</span> موفيت - مدخل إلى الفيزياء</div>
+    <div class="teacher-chip"><span>🧠</span> التذكر | الفهم | التطبيق</div>
+  </div>
+</div>
+</header>
+
+<!-- STUDENT INFO -->
+<div class="student-info-section">
+  <div class="info-card">
+    <div class="info-field"><label>🧑‍🎓 اسم الطالب/ة</label><input type="text" placeholder="اكتب اسمك الكامل هنا..." id="studentName"></div>
+    <div class="info-field"><label>📅 التاريخ</label><input type="date" id="dateField"></div>
+    <div class="info-field"><label>🏫 الصف والشعبة</label><input type="text" placeholder="مثال: سابع أ..." id="classField"></div>
+  </div>
+</div>
+
+<div class="main-content">
+
+<!-- INSTRUCTIONS -->
+<div class="section-card s1" style="animation-delay:0.05s">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-num">📋</div>
+    <div class="section-title-wrap"><h2>تعليمات الورقة</h2><p>اقرأ بعناية قبل البدء</p></div>
+    <span class="toggle-arrow">▼</span>
+  </div>
+  <div class="section-body open">
+    <div class="info-box" style="background:linear-gradient(135deg,#fff8e8,#fff3d0);border-color:#f5a623;">
+      <h3>⭐ عزيزي الطالب / عزيزتي الطالبة</h3>
+      <p>هذه ورقة عمل تفاعلية صُممت لمرافقتك خطوة بخطوة في اكتشاف عالم الفيزياء. ستجد شرحاً كاملاً مع أنشطة متدرجة تختبر فهمك وتطبيقك.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+      <div class="info-box"><h3>✏️ الأدوات المطلوبة</h3>قلم، ممحاة، آلة حاسبة</div>
+      <div class="info-box green"><h3>📊 التقييم</h3>معيار الروبريك في نهاية الورقة</div>
+      <div class="info-box purple"><h3>🎯 مستويات التفكير</h3>التذكر + الفهم + التطبيق</div>
+      <div class="info-box orange"><h3>🏆 في النهاية</h3>حمّل بطاقتك التشجيعية!</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1: PHENOMENA -->
+<div class="section-card s1" style="animation-delay:0.1s">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-num">١</div>
+    <div class="section-title-wrap"><h2>الظواهر الطبيعية والفيزيائية</h2><p>تعريف وأمثلة مع صور توضيحية</p></div>
+    <span class="bloom-tag">تذكّر</span>
+    <span class="toggle-arrow">▼</span>
+  </div>
+  <div class="section-body open">
+    <div class="info-box">
+      <h3>🌍 ما هي الظاهرة الطبيعية؟</h3>
+      <p>الظاهرة الطبيعية هي <span class="highlight">كل حدث أو تغيّر يحدث في الطبيعة من حولنا</span> دون تدخل الإنسان. تشمل الظواهر الطبيعية كل ما يحدث في الغلاف الجوي والأرض والكون.</p>
+    </div>
+    <div class="two-col">
+      <div class="info-box green">
+        <h3>⚡ الظاهرة الفيزيائية</h3>
+        <p>هي ظاهرة طبيعية تُدرسها الفيزياء، تتعلق بـ <span class="hl-green">الطاقة والحركة والضوء والصوت والحرارة والكهرباء والمغناطيسية</span>. لا يتغير فيها التركيب الكيميائي للمادة.</p>
+      </div>
+      <div class="info-box orange">
+        <h3>🔬 الظاهرة الكيميائية</h3>
+        <p>ظاهرة تتغير فيها طبيعة المادة وتركيبها الكيميائي، مثل: <span class="hl-orange">احتراق الخشب، تصدّؤ الحديد، نضوج الفاكهة</span>.</p>
+      </div>
+    </div>
+
+    <!-- PHENOMENON IMAGE BUTTONS -->
+    <div class="phenom-section">
+      <div class="phenom-title">📸 أمثلة على الظواهر الفيزيائية — انقر لترى الصورة</div>
+      <div class="phenom-btns" id="phenomBtns">
+        <button class="phenom-btn" style="background:linear-gradient(135deg,#1a3a8f,#3a7bd5);" onclick="showPhenom(0,this)">⚡ البرق والرعد</button>
+        <button class="phenom-btn" style="background:linear-gradient(135deg,#e67e22,#f5c518);" onclick="showPhenom(1,this)">🌈 قوس قزح</button>
+        <button class="phenom-btn" style="background:linear-gradient(135deg,#0b6fa4,#1abc9c);" onclick="showPhenom(2,this)">🌊 الأمواج</button>
+        <button class="phenom-btn" style="background:linear-gradient(135deg,#6c3483,#a569bd);" onclick="showPhenom(3,this)">🌌 الشفق القطبي</button>
+        <button class="phenom-btn" style="background:linear-gradient(135deg,#2c7873,#6fb98f);" onclick="showPhenom(4,this)">🌧️ المطر</button>
+        <button class="phenom-btn" style="background:linear-gradient(135deg,#7b1e00,#c0392b);" onclick="showPhenom(5,this)">🌍 الزلازل</button>
+      </div>
+      <div id="phenomDisplay" class="phenom-display">
+        <div class="phenom-img-wrap">
+          <img id="phenomImg" src="" alt="">
+          <div class="phenom-caption">
+            <span class="phys-tag">ظاهرة فيزيائية</span>
+            <h3 id="phenomTitle"></h3>
+            <p id="phenomDesc"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIVITY 1 -->
+    <div class="activity-label remember">📝 نشاط ١ - مستوى التذكر</div>
+    <div class="question-block">
+      <p>١. عرّف بكلماتك الخاصة: ما الفرق بين الظاهرة الطبيعية والظاهرة الفيزيائية؟</p>
+      <textarea class="answer-area" placeholder="اكتب تعريفك هنا..."></textarea>
+    </div>
+    <div class="question-block">
+      <p>٢. صنّف الظواهر التالية إلى فيزيائية (ف) أو كيميائية (ك):</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+        <div class="classify-row">
+          <span>🌈 قوس قزح</span>
+          <button class="cls-btn" style="background:#2e7dd1;" onclick="doClassify(this,'ف','ف','cls0')">فيزيائية</button>
+          <button class="cls-btn" style="background:#e74c3c;" onclick="doClassify(this,'ك','ف','cls0')">كيميائية</button>
+          <span class="conv-result" id="cls0"></span>
+        </div>
+        <div class="classify-row">
+          <span>🔥 احتراق الورق</span>
+          <button class="cls-btn" style="background:#2e7dd1;" onclick="doClassify(this,'ف','ك','cls1')">فيزيائية</button>
+          <button class="cls-btn" style="background:#e74c3c;" onclick="doClassify(this,'ك','ك','cls1')">كيميائية</button>
+          <span class="conv-result" id="cls1"></span>
+        </div>
+        <div class="classify-row">
+          <span>⚡ البرق</span>
+          <button class="cls-btn" style="background:#2e7dd1;" onclick="doClassify(this,'ف','ف','cls2')">فيزيائية</button>
+          <button class="cls-btn" style="background:#e74c3c;" onclick="doClassify(this,'ك','ف','cls2')">كيميائية</button>
+          <span class="conv-result" id="cls2"></span>
+        </div>
+        <div class="classify-row">
+          <span>🍎 تعفّن التفاح</span>
+          <button class="cls-btn" style="background:#2e7dd1;" onclick="doClassify(this,'ف','ك','cls3')">فيزيائية</button>
+          <button class="cls-btn" style="background:#e74c3c;" onclick="doClassify(this,'ك','ك','cls3')">كيميائية</button>
+          <span class="conv-result" id="cls3"></span>
+        </div>
+        <div class="classify-row">
+          <span>🌊 أمواج البحر</span>
+          <button class="cls-btn" style="background:#2e7dd1;" onclick="doClassify(this,'ف','ف','cls4')">فيزيائية</button>
+          <button class="cls-btn" style="background:#e74c3c;" onclick="doClassify(this,'ك','ف','cls4')">كيميائية</button>
+          <span class="conv-result" id="cls4"></span>
+        </div>
+        <div class="classify-row">
+          <span>🦺 تصدّؤ الحديد</span>
+          <button class="cls-btn" style="background:#2e7dd1;" onclick="doClassify(this,'ف','ك','cls5')">فيزيائية</button>
+          <button class="cls-btn" style="background:#e74c3c;" onclick="doClassify(this,'ك','ك','cls5')">كيميائية</button>
+          <span class="conv-result" id="cls5"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: PROPERTIES -->
+<div class="section-card s2" style="animation-delay:0.15s">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-num">٢</div>
+    <div class="section-title-wrap"><h2>صفات المواد الكيميائية والفيزيائية</h2><p>تعريف وأمثلة لكلٍّ منهما</p></div>
+    <span class="bloom-tag">فهم</span>
+    <span class="toggle-arrow">▼</span>
+  </div>
+  <div class="section-body">
+    <div class="two-col">
+      <div class="info-box">
+        <h3>🔵 الصفة الفيزيائية</h3>
+        <p>صفة يمكن قياسها أو ملاحظتها <span class="highlight">دون تغيير تركيب المادة الكيميائي</span>.</p>
+        <ul style="margin-top:10px;padding-right:18px;line-height:2.4;">
+          <li>اللون 🎨</li><li>الكثافة ⚖️</li><li>درجة الغليان 🌡️</li>
+          <li>الطول 📏</li><li>الكتلة ⚖️</li><li>الحالة (صلبة/سائلة/غازية)</li>
+        </ul>
+      </div>
+      <div class="info-box red">
+        <h3>🔴 الصفة الكيميائية</h3>
+        <p>صفة تُلاحَظ عندما <span class="hl-red">تتفاعل المادة كيميائياً</span> وتتحول إلى مادة مختلفة.</p>
+        <ul style="margin-top:10px;padding-right:18px;line-height:2.4;">
+          <li>القابلية للاشتعال 🔥</li><li>التآكل / الصدأ 🦺</li>
+          <li>التفاعل مع الأحماض ⚗️</li><li>التخمر 🍇</li>
+        </ul>
+      </div>
+    </div>
+    <div class="info-box teal" style="background:linear-gradient(135deg,#e8fff8,#f0fbfa);">
+      <h3>💡 القاعدة الذهبية</h3>
+      <p>إذا استطعت ملاحظة الصفة أو قياسها <strong>بدون تغيير تركيب المادة</strong> → فهي <span class="hl-green">فيزيائية</span>.<br>
+      إذا كانت الصفة تظهر فقط عند <strong>تحوّل المادة إلى مادة أخرى</strong> → فهي <span class="hl-red">كيميائية</span>.</p>
+    </div>
+    <div class="activity-label understand">🔍 نشاط ٢ - مستوى الفهم</div>
+    <div class="question-block">
+      <p>انقر على كلمة من البنك ثم انقر على المربع المناسب لها (فيزيائية أو كيميائية):</p>
+      <div class="drag-bank" id="dragBank">
+        <div class="drag-word" onclick="selectWord(this)">الكثافة</div>
+        <div class="drag-word" onclick="selectWord(this)">الاشتعال</div>
+        <div class="drag-word" onclick="selectWord(this)">اللون</div>
+        <div class="drag-word" onclick="selectWord(this)">الصدأ</div>
+        <div class="drag-word" onclick="selectWord(this)">الطول</div>
+        <div class="drag-word" onclick="selectWord(this)">التخمر</div>
+        <div class="drag-word" onclick="selectWord(this)">درجة الغليان</div>
+        <div class="drag-word" onclick="selectWord(this)">التفاعل مع الحمض</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div>
+          <h4 style="color:var(--sky);font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:8px;text-align:center;">🔵 صفات فيزيائية</h4>
+          <div id="physBox" style="display:flex;flex-direction:column;gap:6px;">
+            <div class="fill-blank" onclick="dropHere(this,'phys')">انقر للوضع هنا</div>
+            <div class="fill-blank" onclick="dropHere(this,'phys')">انقر للوضع هنا</div>
+            <div class="fill-blank" onclick="dropHere(this,'phys')">انقر للوضع هنا</div>
+            <div class="fill-blank" onclick="dropHere(this,'phys')">انقر للوضع هنا</div>
+          </div>
+        </div>
+        <div>
+          <h4 style="color:var(--red);font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:800;margin-bottom:8px;text-align:center;">🔴 صفات كيميائية</h4>
+          <div id="chemBox" style="display:flex;flex-direction:column;gap:6px;">
+            <div class="fill-blank" onclick="dropHere(this,'chem')">انقر للوضع هنا</div>
+            <div class="fill-blank" onclick="dropHere(this,'chem')">انقر للوضع هنا</div>
+            <div class="fill-blank" onclick="dropHere(this,'chem')">انقر للوضع هنا</div>
+            <div class="fill-blank" onclick="dropHere(this,'chem')">انقر للوضع هنا</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;">
+        <button class="conv-btn" onclick="checkDragAnswers()" style="background:var(--teal);">✅ تحقق من الإجابات</button>
+        <button class="conv-btn" onclick="resetDrag()" style="background:#95a5a6;">🔄 إعادة التصفية</button>
+      </div>
+      <div class="conv-result" id="dragResult" style="margin-top:8px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: QUANTITATIVE & QUALITATIVE -->
+<div class="section-card s3" style="animation-delay:0.2s">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-num">٣</div>
+    <div class="section-title-wrap"><h2>الصفات الفيزيائية: كمية وكيفية</h2><p>تعريف كل نوع مع أمثلة</p></div>
+    <span class="bloom-tag">فهم</span>
+    <span class="toggle-arrow">▼</span>
+  </div>
+  <div class="section-body">
+    <div class="two-col">
+      <div class="info-box purple">
+        <h3>🔢 الصفة الكمية (Quantitative)</h3>
+        <p>صفة يمكن <span class="hl-purple">قياسها وتعبيرها بعدد ووحدة قياس</span>. تُحدد بدقة باستخدام أدوات القياس.</p>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="background:#f8f0ff;border:1px solid #c39bd3;padding:4px 10px;border-radius:8px;font-size:0.82rem;color:#8e44ad;font-weight:700;">📏 الطول: 5 م</span>
+          <span style="background:#f8f0ff;border:1px solid #c39bd3;padding:4px 10px;border-radius:8px;font-size:0.82rem;color:#8e44ad;font-weight:700;">⚖️ الكتلة: 2 كغ</span>
+          <span style="background:#f8f0ff;border:1px solid #c39bd3;padding:4px 10px;border-radius:8px;font-size:0.82rem;color:#8e44ad;font-weight:700;">🌡️ الحرارة: 37°م</span>
+          <span style="background:#f8f0ff;border:1px solid #c39bd3;padding:4px 10px;border-radius:8px;font-size:0.82rem;color:#8e44ad;font-weight:700;">🚀 السرعة: 60 كم/س</span>
+        </div>
+      </div>
+      <div class="info-box">
+        <h3>🎨 الصفة الكيفية (Qualitative)</h3>
+        <p>صفة يمكن <span class="highlight">وصفها ولكن لا يمكن قياسها بشكل مباشر</span> بأرقام دقيقة. تُحدد بالمشاهدة والحواس.</p>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="background:#f0f6ff;border:1px solid #90b4e8;padding:4px 10px;border-radius:8px;font-size:0.82rem;color:#1a3a8f;font-weight:700;">🎨 اللون</span>
+          <span style="background:#f0f6ff;border:1px solid #90b4e8;padding:4px 10px;border-radius:8px;font-size:0.82rem;color:#1a3a8f;font-weight:700;">✨ اللمعان</span>
+          <span style="background:#f0f6ff;border:1px solid #90b4e8;padding:4px 10px;border-radius:8px;font-size:0.82rem;color:#1a3a8f;font-weight:700;">🔨 الصلابة</span>
+          <span style="background:#f0f6ff;border:1px solid #90b4e8;padding:4px 10px;border-radius:8px;font-size:0.82rem;color:#1a3a8f;font-weight:700;">👃 الرائحة</span>
+        </div>
+      </div>
+    </div>
+    <div class="activity-label understand">🔍 نشاط ٣ - مستوى الفهم</div>
+    <div class="question-block">
+      <p>اختر نوع كل صفة:</p>
+      <div id="qnqContainer" style="display:flex;flex-direction:column;gap:10px;margin-top:8px;"></div>
+    </div>
+    <div class="question-block">
+      <p>اكتب مثالين من عندك على صفات كمية ومثالين على صفات كيفية:</p>
+      <textarea class="answer-area" placeholder="الصفات الكمية: &#10;الصفات الكيفية:"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: PHYSICAL QUANTITY -->
+<div class="section-card s4" style="animation-delay:0.25s">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-num">٤</div>
+    <div class="section-title-wrap"><h2>المقدار الفيزيائي (الصفة الكمية)</h2><p>من الصفة الكمية إلى المفهوم الأشمل</p></div>
+    <span class="bloom-tag">فهم</span>
+    <span class="toggle-arrow">▼</span>
+  </div>
+  <div class="section-body">
+    <div class="info-box orange">
+      <h3>📐 ما هو المقدار الفيزيائي؟</h3>
+      <p>المقدار الفيزيائي هو <span class="hl-orange">صفة كمية يمكن قياسها وتُعبَّر عنها بعدد ووحدة قياس محددة</span>.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+      <div style="background:#fff8f0;border:2px solid #e67e22;border-radius:14px;padding:16px;text-align:center;"><div style="font-size:2rem;margin-bottom:8px;">🔢</div><h4 style="color:#e67e22;font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:800;">العدد (القيمة)</h4><p style="font-size:0.82rem;color:var(--text-mid);">مثل: 5 ، 100 ، 9.8</p></div>
+      <div style="background:#f0f6ff;border:2px solid #2e7dd1;border-radius:14px;padding:16px;text-align:center;"><div style="font-size:2rem;margin-bottom:8px;">📏</div><h4 style="color:#2e7dd1;font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:800;">وحدة القياس</h4><p style="font-size:0.82rem;color:var(--text-mid);">مثل: متر، كيلوغرام، ثانية</p></div>
+      <div style="background:#f0faf4;border:2px solid #27ae60;border-radius:14px;padding:16px;text-align:center;"><div style="font-size:2rem;margin-bottom:8px;">🔤</div><h4 style="color:#27ae60;font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:800;">الرمز / الاسم</h4><p style="font-size:0.82rem;color:var(--text-mid);">مثل: L للطول، m للكتلة</p></div>
+    </div>
+    <div class="info-box teal"><h3>💡 مثال</h3><p>طول قضيب = <span class="hl-green">3.5</span> <span class="hl-orange">متر</span> → العدد: 3.5 | الوحدة: متر | المقدار: الطول (L)</p></div>
+  </div>
+</div>
+
+<!-- SECTION 5: TABLE -->
+<div class="section-card s5" style="animation-delay:0.3s">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-num">٥</div>
+    <div class="section-title-wrap"><h2>جدول المقادير الفيزيائية</h2><p>الرمز، الاشتقاق، الوحدة، أداة القياس</p></div>
+    <span class="bloom-tag">تذكّر + فهم</span>
+    <span class="toggle-arrow">▼</span>
+  </div>
+  <div class="section-body">
+    <div class="info-box" style="margin-bottom:4px;"><h3>📊 المقادير الفيزيائية الأساسية - نظام MKS</h3><p>نظام MKS يعتمد: <span class="highlight">المتر (م)</span> للطول، <span class="highlight">الكيلوغرام (كغ)</span> للكتلة، <span class="highlight">الثانية (ث)</span> للزمن.</p></div>
+    <div style="overflow-x:auto;">
+    <table class="styled-table">
+      <thead><tr><th>المقدار الفيزيائي</th><th>تعريفه</th><th>الرمز الإنجليزي ومصدره</th><th>وحدة القياس (MKS)</th><th>أداة القياس</th></tr></thead>
+      <tbody>
+        <tr><td><strong>الطول</strong></td><td>المسافة بين نقطتين</td><td><span class="qty-badge">L</span><br><small>Length (إنجليزي) = طول</small></td><td>متر (m)</td><td>🔧 المسطرة / شريط القياس</td></tr>
+        <tr><td><strong>الكتلة</strong></td><td>كمية المادة في الجسم</td><td><span class="qty-badge">m</span><br><small>Mass (إنجليزي) = كتلة</small></td><td>كيلوغرام (kg)</td><td>⚖️ الميزان الرافعة / الإلكتروني</td></tr>
+        <tr><td><strong>الزمن</strong></td><td>الفترة بين حدثين</td><td><span class="qty-badge">t</span><br><small>Time (إنجليزي) = وقت</small></td><td>ثانية (s)</td><td>⏱️ الساعة / المنبّه</td></tr>
+        <tr><td><strong>الحجم</strong></td><td>المقدار الذي يشغله الجسم في الفراغ</td><td><span class="qty-badge">V</span><br><small>Volume (إنجليزي) = حجم</small></td><td>متر مكعب (m³)</td><td>🧪 المخبار المدرّج</td></tr>
+        <tr><td><strong>درجة الحرارة</strong></td><td>مقياس درجة سخونة الجسم</td><td><span class="qty-badge">T</span><br><small>Temperature (إنجليزي) = حرارة</small></td><td>كلفن (K) / درجة مئوية (°C)</td><td>🌡️ الترمومتر</td></tr>
+        <tr><td><strong>السرعة</strong></td><td>المسافة المقطوعة في وحدة الزمن</td><td><span class="qty-badge">v</span><br><small>Velocity (إنجليزي) = سرعة اتجاهية</small></td><td>م/ث (m/s)</td><td>🚗 مقياس السرعة (عداد)</td></tr>
+        <tr><td><strong>الكثافة</strong></td><td>الكتلة لكل وحدة حجم</td><td><span class="qty-badge">ρ</span><br><small>rho (يونانية) = كثافة</small></td><td>كغ/م³ (kg/m³)</td><td>⚖️🧪 ميزان + مخبار</td></tr>
+        <tr><td><strong>القوة</strong></td><td>تأثير خارجي يُغيّر حالة الجسم</td><td><span class="qty-badge">F</span><br><small>Force (إنجليزي) = قوة</small></td><td>نيوتن (N)</td><td>🔩 جهاز قياس القوة (ديناموميتر)</td></tr>
+        <tr><td><strong>الطاقة</strong></td><td>القدرة على إنجاز شغل</td><td><span class="qty-badge">E</span><br><small>Energy (إنجليزي) = طاقة</small></td><td>جول (J)</td><td>⚡ مقياس الطاقة (أجهزة متخصصة)</td></tr>
+        <tr><td><strong>الشدة الكهربائية</strong></td><td>شدة التيار الكهربائي</td><td><span class="qty-badge">I</span><br><small>Intensity (لاتيني) = شدة</small></td><td>أمبير (A)</td><td>⚡ الأميتر</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="activity-label apply">⚙️ نشاط ٤ - مستوى التطبيق</div>
+    <div class="question-block">
+      <p>أكمل الجدول التالي:</p>
+      <div style="overflow-x:auto;">
+      <table class="styled-table" style="font-size:0.82rem;">
+        <thead><tr><th>المقدار</th><th>الرمز</th><th>الوحدة</th><th>الأداة</th></tr></thead>
+        <tbody>
+          <tr><td>القوة</td><td><input style="width:60px;border:1px solid #ddd;padding:4px;border-radius:6px;text-align:center;" placeholder="..."></td><td><input style="width:80px;border:1px solid #ddd;padding:4px;border-radius:6px;text-align:center;" placeholder="..."></td><td><input style="width:130px;border:1px solid #ddd;padding:4px;border-radius:6px;text-align:center;" placeholder="..."></td></tr>
+          <tr><td>الطاقة</td><td><input style="width:60px;border:1px solid #ddd;padding:4px;border-radius:6px;text-align:center;" placeholder="..."></td><td><input style="width:80px;border:1px solid #ddd;padding:4px;border-radius:6px;text-align:center;" placeholder="..."></td><td><input style="width:130px;border:1px solid #ddd;padding:4px;border-radius:6px;text-align:center;" placeholder="..."></td></tr>
+          <tr><td>درجة الحرارة</td><td><input style="width:60px;border:1px solid #ddd;padding:4px;border-radius:6px;text-align:center;" placeholder="..."></td><td><input style="width:80px;border:1px solid #ddd;padding:4px;border-radius:6px;text-align:center;" placeholder="..."></td><td><input style="width:130px;border:1px solid #ddd;padding:4px;border-radius:6px;text-align:center;" placeholder="..."></td></tr>
+          <tr><td>الكتلة</td><td><input style="width:60px;border:1px solid #ddd;padding:4px;border-radius:6px;text-align:center;" placeholder="..."></td><td><input style="width:80px;border:1px solid #ddd;padding:4px;border-radius:6px;text-align:center;" placeholder="..."></td><td><input style="width:130px;border:1px solid #ddd;padding:4px;border-radius:6px;text-align:center;" placeholder="..."></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: UNIT CONVERSION -->
+<div class="section-card s6" style="animation-delay:0.35s">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-num">٦</div>
+    <div class="section-title-wrap"><h2>تحويل وحدات القياس</h2><p>الطول | الكتلة | الحجم | الزمن | السرعة</p></div>
+    <span class="bloom-tag">تطبيق</span>
+    <span class="toggle-arrow">▼</span>
+  </div>
+  <div class="section-body">
+
+    <!-- LENGTH -->
+    <div class="conv-section">
+      <h4>📏 أولاً: وحدات الطول</h4>
+      <div class="conv-hint">
+        💡 <strong>تذكّر العلاقات:</strong> 1 كم = 1000 م | 1 م = 100 سم | 1 سم = 10 مم<br>
+        للتحويل من الكبيرة إلى الصغيرة → اضرب | من الصغيرة إلى الكبيرة → اقسم
+      </div>
+      <div class="conv-exercises">
+        <div class="conv-ex-row"><span>3 كيلومتر = ؟ متر</span><input id="len1" type="number" placeholder="..."><span class="unit-label">م</span><button class="check-btn" onclick="checkConv('len1',3000,'✅ 3 كم × 1000 = 3000 م')">تحقق</button><span class="conv-result" id="len1r"></span></div>
+        <div class="conv-ex-row"><span>250 سنتيمتر = ؟ متر</span><input id="len2" type="number" placeholder="..."><span class="unit-label">م</span><button class="check-btn" onclick="checkConv('len2',2.5,'✅ 250 ÷ 100 = 2.5 م')">تحقق</button><span class="conv-result" id="len2r"></span></div>
+        <div class="conv-ex-row"><span>5.5 م = ؟ سنتيمتر</span><input id="len3" type="number" placeholder="..."><span class="unit-label">سم</span><button class="check-btn" onclick="checkConv('len3',550,'✅ 5.5 × 100 = 550 سم')">تحقق</button><span class="conv-result" id="len3r"></span></div>
+        <div class="conv-ex-row"><span>4.2 كم = ؟ سنتيمتر</span><input id="len4" type="number" placeholder="..."><span class="unit-label">سم</span><button class="check-btn" onclick="checkConv('len4',420000,'✅ 4.2 × 1000 × 100 = 420000 سم')">تحقق</button><span class="conv-result" id="len4r"></span></div>
+        <div class="conv-ex-row"><span>35 مليمتر = ؟ متر</span><input id="len5" type="number" placeholder="..."><span class="unit-label">م</span><button class="check-btn" onclick="checkConv('len5',0.035,'✅ 35 ÷ 1000 = 0.035 م')">تحقق</button><span class="conv-result" id="len5r"></span></div>
+      </div>
+    </div>
+
+    <!-- MASS -->
+    <div class="conv-section">
+      <h4>⚖️ ثانياً: وحدات الكتلة</h4>
+      <div class="conv-hint">
+        💡 <strong>تذكّر العلاقات:</strong> 1 طن = 1000 كغ | 1 كغ = 1000 غ | 1 غ = 1000 ملغ
+      </div>
+      <div class="conv-exercises">
+        <div class="conv-ex-row"><span>3.5 كيلوغرام = ؟ غرام</span><input id="mass1" type="number" placeholder="..."><span class="unit-label">غ</span><button class="check-btn" onclick="checkConv('mass1',3500,'✅ 3.5 × 1000 = 3500 غ')">تحقق</button><span class="conv-result" id="mass1r"></span></div>
+        <div class="conv-ex-row"><span>2500 غرام = ؟ كيلوغرام</span><input id="mass2" type="number" placeholder="..."><span class="unit-label">كغ</span><button class="check-btn" onclick="checkConv('mass2',2.5,'✅ 2500 ÷ 1000 = 2.5 كغ')">تحقق</button><span class="conv-result" id="mass2r"></span></div>
+        <div class="conv-ex-row"><span>0.75 طن = ؟ كيلوغرام</span><input id="mass3" type="number" placeholder="..."><span class="unit-label">كغ</span><button class="check-btn" onclick="checkConv('mass3',750,'✅ 0.75 × 1000 = 750 كغ')">تحقق</button><span class="conv-result" id="mass3r"></span></div>
+        <div class="conv-ex-row"><span>450 غرام = ؟ كيلوغرام</span><input id="mass4" type="number" placeholder="..."><span class="unit-label">كغ</span><button class="check-btn" onclick="checkConv('mass4',0.45,'✅ 450 ÷ 1000 = 0.45 كغ')">تحقق</button><span class="conv-result" id="mass4r"></span></div>
+        <div class="conv-ex-row"><span>1.2 طن = ؟ غرام</span><input id="mass5" type="number" placeholder="..."><span class="unit-label">غ</span><button class="check-btn" onclick="checkConv('mass5',1200000,'✅ 1.2 × 1000 × 1000 = 1,200,000 غ')">تحقق</button><span class="conv-result" id="mass5r"></span></div>
+      </div>
+    </div>
+
+    <!-- VOLUME -->
+    <div class="conv-section">
+      <h4>🧪 ثالثاً: وحدات الحجم</h4>
+      <div class="conv-hint">
+        💡 <strong>تذكّر العلاقات:</strong> 1 م³ = 1000 لتر | 1 لتر = 1000 مل = 1000 سم³
+      </div>
+      <div class="conv-exercises">
+        <div class="conv-ex-row"><span>2 لتر = ؟ مليلتر</span><input id="vol1" type="number" placeholder="..."><span class="unit-label">مل</span><button class="check-btn" onclick="checkConv('vol1',2000,'✅ 2 × 1000 = 2000 مل')">تحقق</button><span class="conv-result" id="vol1r"></span></div>
+        <div class="conv-ex-row"><span>500 مليلتر = ؟ لتر</span><input id="vol2" type="number" placeholder="..."><span class="unit-label">لتر</span><button class="check-btn" onclick="checkConv('vol2',0.5,'✅ 500 ÷ 1000 = 0.5 لتر')">تحقق</button><span class="conv-result" id="vol2r"></span></div>
+        <div class="conv-ex-row"><span>3 م³ = ؟ لتر</span><input id="vol3" type="number" placeholder="..."><span class="unit-label">لتر</span><button class="check-btn" onclick="checkConv('vol3',3000,'✅ 3 × 1000 = 3000 لتر')">تحقق</button><span class="conv-result" id="vol3r"></span></div>
+        <div class="conv-ex-row"><span>250 سم³ = ؟ لتر</span><input id="vol4" type="number" placeholder="..."><span class="unit-label">لتر</span><button class="check-btn" onclick="checkConv('vol4',0.25,'✅ 250 ÷ 1000 = 0.25 لتر')">تحقق</button><span class="conv-result" id="vol4r"></span></div>
+      </div>
+    </div>
+
+    <!-- TIME -->
+    <div class="conv-section">
+      <h4>⏱️ رابعاً: وحدات الزمن</h4>
+      <div class="conv-hint">
+        💡 <strong>تذكّر العلاقات:</strong> 1 ساعة = 60 دقيقة | 1 دقيقة = 60 ثانية | 1 ساعة = 3600 ثانية | 1 يوم = 24 ساعة
+      </div>
+      <div class="conv-exercises">
+        <div class="conv-ex-row"><span>2 ساعة = ؟ ثانية</span><input id="time1" type="number" placeholder="..."><span class="unit-label">ث</span><button class="check-btn" onclick="checkConv('time1',7200,'✅ 2 × 3600 = 7200 ث')">تحقق</button><span class="conv-result" id="time1r"></span></div>
+        <div class="conv-ex-row"><span>90 دقيقة = ؟ ثانية</span><input id="time2" type="number" placeholder="..."><span class="unit-label">ث</span><button class="check-btn" onclick="checkConv('time2',5400,'✅ 90 × 60 = 5400 ث')">تحقق</button><span class="conv-result" id="time2r"></span></div>
+        <div class="conv-ex-row"><span>3600 ثانية = ؟ ساعة</span><input id="time3" type="number" placeholder="..."><span class="unit-label">ساعة</span><button class="check-btn" onclick="checkConv('time3',1,'✅ 3600 ÷ 3600 = 1 ساعة')">تحقق</button><span class="conv-result" id="time3r"></span></div>
+        <div class="conv-ex-row"><span>2.5 يوم = ؟ ساعة</span><input id="time4" type="number" placeholder="..."><span class="unit-label">ساعة</span><button class="check-btn" onclick="checkConv('time4',60,'✅ 2.5 × 24 = 60 ساعة')">تحقق</button><span class="conv-result" id="time4r"></span></div>
+        <div class="conv-ex-row"><span>180 ثانية = ؟ دقيقة</span><input id="time5" type="number" placeholder="..."><span class="unit-label">دقيقة</span><button class="check-btn" onclick="checkConv('time5',3,'✅ 180 ÷ 60 = 3 دقائق')">تحقق</button><span class="conv-result" id="time5r"></span></div>
+      </div>
+    </div>
+
+    <!-- SPEED -->
+    <div class="conv-section">
+      <h4>🚗 خامساً: وحدات السرعة</h4>
+      <div class="conv-hint">
+        💡 <strong>تذكّر العلاقة:</strong> 1 م/ث = 3.6 كم/س | 1 كم/س = 1/3.6 ≈ 0.278 م/ث<br>
+        للتحويل من كم/س → م/ث: اضرب في 1000 واقسم على 3600 (أو اضرب × 1000/3600)
+      </div>
+      <div class="conv-exercises">
+        <div class="conv-ex-row"><span>72 كم/س = ؟ م/ث</span><input id="spd1" type="number" placeholder="..."><span class="unit-label">م/ث</span><button class="check-btn" onclick="checkConv('spd1',20,'✅ 72 ÷ 3.6 = 20 م/ث')">تحقق</button><span class="conv-result" id="spd1r"></span></div>
+        <div class="conv-ex-row"><span>10 م/ث = ؟ كم/س</span><input id="spd2" type="number" placeholder="..."><span class="unit-label">كم/س</span><button class="check-btn" onclick="checkConv('spd2',36,'✅ 10 × 3.6 = 36 كم/س')">تحقق</button><span class="conv-result" id="spd2r"></span></div>
+        <div class="conv-ex-row"><span>108 كم/س = ؟ م/ث</span><input id="spd3" type="number" placeholder="..."><span class="unit-label">م/ث</span><button class="check-btn" onclick="checkConv('spd3',30,'✅ 108 ÷ 3.6 = 30 م/ث')">تحقق</button><span class="conv-result" id="spd3r"></span></div>
+        <div class="conv-ex-row"><span>25 م/ث = ؟ كم/س</span><input id="spd4" type="number" placeholder="..."><span class="unit-label">كم/س</span><button class="check-btn" onclick="checkConv('spd4',90,'✅ 25 × 3.6 = 90 كم/س')">تحقق</button><span class="conv-result" id="spd4r"></span></div>
+        <div class="conv-ex-row"><span>54 كم/س = ؟ م/ث</span><input id="spd5" type="number" placeholder="..."><span class="unit-label">م/ث</span><button class="check-btn" onclick="checkConv('spd5',15,'✅ 54 ÷ 3.6 = 15 م/ث')">تحقق</button><span class="conv-result" id="spd5r"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: INSTRUMENTS + ARCHIMEDES -->
+<div class="section-card s7" style="animation-delay:0.4s">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-num">٧</div>
+    <div class="section-title-wrap"><h2>قراءة الأدوات المدرّجة + قانون أرخميدس</h2><p>قيمة الدرجة، السنّة، الحجم بالإزاحة، وحجم المنتظمة</p></div>
+    <span class="bloom-tag">تطبيق</span>
+    <span class="toggle-arrow">▼</span>
+  </div>
+  <div class="section-body">
+
+    <!-- READING RULES -->
+    <div class="info-box orange">
+      <h3>🔍 كيف تقرأ الأداة المدرّجة؟</h3>
+      <ol style="margin-top:10px;padding-right:18px;line-height:2.4;">
+        <li><span class="hl-orange">قيمة الدرجة الكبيرة:</span> الفرق بين رقمين متتاليين مدوّنين على الأداة.</li>
+        <li><span class="hl-orange">السنّة (أصغر قسم = قيمة الدرجة الصغيرة):</span> قيمة الدرجة الكبيرة ÷ عدد الأقسام الصغيرة بينهما.</li>
+        <li><span class="hl-orange">القراءة:</span> العدد عند الخط الأقرب لمؤشر الأداة أو سطح السائل.</li>
+        <li><span class="hl-orange">نوع الأداة من وحداتها:</span> وحدة (مل أو سم³) → مخبار حجم | (سم أو مم) → مسطرة | (°م أو °ف) → ترمومتر.</li>
+      </ol>
+    </div>
+
+    <!-- INSTRUMENT SIMULATOR -->
+    <div class="instr-select-wrap">
+      <label>🔬 اختر نوع الأداة:</label>
+      <select class="instr-select" id="instrSelect" onchange="showInstruments()">
+        <option value="">-- اختر أداة --</option>
+        <option value="ruler">📏 المسطرة (Ruler)</option>
+        <option value="cylinder">🧪 المخبار المدرّج (Graduated Cylinder)</option>
+        <option value="thermo">🌡️ ميزان الحرارة (Thermometer)</option>
+      </select>
+    </div>
+    <div id="instrCardsWrap"></div>
+
+    <!-- ARCHIMEDES -->
+    <div class="info-box purple">
+      <h3>💧 قانون أرخميدس لقياس حجم جسم غير منتظم (طريقة الإزاحة)</h3>
+      <p style="margin-top:8px;line-height:2;"><strong>الفكرة:</strong> عند غمر جسم غير منتظم في سائل داخل مخبار مدرّج، يرتفع مستوى السائل بمقدار يساوي حجم الجسم.</p>
+      <div style="background:rgba(255,255,255,0.5);border-radius:10px;padding:12px;margin-top:10px;text-align:center;direction:ltr;font-size:1rem;font-weight:700;color:#8e44ad;">
+        V<sub>جسم</sub> = V₂ − V₁
+      </div>
+    </div>
+
+    <!-- ARCHIMEDES SIMULATION -->
+    <div class="arch-sim">
+      <h3 style="font-family:'Cairo',sans-serif;font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:14px;text-align:center;">🧪 محاكاة أرخميدس — اختر جسماً واقرأ الحجم قبل وبعد الغمر</h3>
+      <div class="arch-objects" id="archObjects">
+        <button class="arch-obj-btn selected" onclick="selectArchObj(this,35,'حجر صغير','🪨')"><span class="obj-icon">🪨</span>حجر صغير</button>
+        <button class="arch-obj-btn" onclick="selectArchObj(this,52,'مكعب معدني','🧊')"><span class="obj-icon">🧊</span>مكعب معدني</button>
+        <button class="arch-obj-btn" onclick="selectArchObj(this,28,'بلّورة','💎')"><span class="obj-icon">💎</span>بلّورة</button>
+        <button class="arch-obj-btn" onclick="selectArchObj(this,64,'صخرة','🏔️')"><span class="obj-icon">🏔️</span>صخرة كبيرة</button>
+        <button class="arch-obj-btn" onclick="selectArchObj(this,18,'قطعة نحاس','🥉')"><span class="obj-icon">🥉</span>قطعة نحاس</button>
+      </div>
+      <div class="arch-canvas-wrap">
+        <canvas id="archCanvas" width="260" height="280"></canvas>
+        <div class="arch-steps">
+          <h4>📋 خطوات القياس:</h4>
+          <div class="arch-step-row">
+            <label>١. القراءة قبل الغمر (V₁):</label>
+            <div class="step-val" id="v1show">100 مل</div>
+          </div>
+          <div class="arch-step-row">
+            <label>٢. القراءة بعد الغمر (V₂):</label>
+            <div class="step-val" id="v2show">135 مل</div>
+          </div>
+          <div class="arch-step-row">
+            <label>٣. احسب: V₂ - V₁ = حجم الجسم</label>
+          </div>
+          <div class="arch-answer-row">
+            <span style="font-weight:700;font-size:0.88rem;white-space:nowrap;">إجابتي:</span>
+            <input type="number" id="archInput" placeholder="...">
+            <span style="font-weight:700;font-size:0.85rem;">مل</span>
+            <button class="arch-calc-btn" style="width:auto;padding:8px 14px;margin-top:0;" onclick="checkArch()">✅ تحقق</button>
+          </div>
+          <div class="arch-final" id="archFinal"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VOLUME FORMULAS -->
+    <div class="info-box green"><h3>📦 قوانين حساب حجم الأجسام المنتظمة</h3></div>
+    <div class="formula-cards">
+      <div class="formula-card"><span class="shape-icon">🔷</span><h4>المكعب</h4><div class="formula">V = a³</div><p>a = طول الضلع</p></div>
+      <div class="formula-card"><span class="shape-icon">📦</span><h4>متوازي المستطيلات</h4><div class="formula">V = L × W × H</div><p>L=طول، W=عرض، H=ارتفاع</p></div>
+      <div class="formula-card"><span class="shape-icon">🔵</span><h4>الكرة</h4><div class="formula">V = (4/3)πr³</div><p>r = نصف القطر</p></div>
+      <div class="formula-card"><span class="shape-icon">🥫</span><h4>الأسطوانة</h4><div class="formula">V = πr²h</div><p>r = نصف القطر، h = الارتفاع</p></div>
+    </div>
+
+    <div class="activity-label apply">⚙️ نشاط ٥ - تطبيق قانون أرخميدس</div>
+    <div class="question-block">
+      <p>في مخبار مدرّج، مستوى الماء = <strong>45 مل</strong>. بعد غمر صخرة أصبح المستوى = <strong>67 مل</strong>. ما حجم الصخرة؟</p>
+      <textarea class="answer-area" placeholder="V₁ = &#10;V₂ = &#10;حجم الصخرة = V₂ - V₁ = ..." style="min-height:90px;"></textarea>
+    </div>
+    <div class="question-block">
+      <p>احسب حجم مكعب طول ضلعه 4 سم. ثم احسب حجم صندوق أبعاده: طول 10 سم، عرض 5 سم، ارتفاع 3 سم.</p>
+      <textarea class="answer-area" placeholder="حل المكعب: V = a³ = &#10;حل الصندوق: V = L×W×H = ..." style="min-height:90px;"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- RUBRIC -->
+<div class="section-card s8" style="animation-delay:0.45s;border-top:4px solid var(--accent);">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-num">📊</div>
+    <div class="section-title-wrap"><h2>معيار التقييم (الروبريك)</h2><p>المعايير وتوزيع الدرجات</p></div>
+    <span class="toggle-arrow">▼</span>
+  </div>
+  <div class="section-body">
+    <div style="overflow-x:auto;">
+    <table class="rubric-table">
+      <thead>
+        <tr><th>المعيار</th><th class="c4">ممتاز (4) ⭐⭐⭐⭐</th><th class="c3">جيد جداً (3) ⭐⭐⭐</th><th class="c2">جيد (2) ⭐⭐</th><th class="c1">يحتاج دعم (1) ⭐</th><th class="cw">الوزن</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>التعريفات والمفاهيم</td><td>تعريفات دقيقة كاملة بلغة علمية سليمة</td><td>تعريفات صحيحة مع قصور بسيط</td><td>تعريفات جزئية أو أخطاء بسيطة</td><td>تعريفات غير دقيقة أو ناقصة</td><td><span class="score-badge s4">25%</span></td></tr>
+        <tr><td>التصنيف والتمييز</td><td>يصنّف بدقة كاملة ويذكر أمثلة إضافية</td><td>يصنّف بشكل صحيح مع أخطاء بسيطة</td><td>يصنّف بعض العناصر بشكل صحيح</td><td>صعوبة في التصنيف الصحيح</td><td><span class="score-badge s3">25%</span></td></tr>
+        <tr><td>تحويل الوحدات والحسابات</td><td>تحويل صحيح مع إظهار جميع الخطوات</td><td>تحويل صحيح بمعظم الخطوات واضحة</td><td>تحويل جزئي مع أخطاء حسابية</td><td>أخطاء جوهرية في التحويل</td><td><span class="score-badge s2">25%</span></td></tr>
+        <tr><td>قراءة الأدوات وتطبيق أرخميدس</td><td>قراءة دقيقة ويطبق القانون بخطوات منظمة</td><td>قراءة صحيحة وتطبيق مع خطأ بسيط</td><td>قراءة تقريبية وتطبيق ناقص</td><td>صعوبة في القراءة والتطبيق</td><td><span class="score-badge s1">25%</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<!-- SELF REFLECTION -->
+<div class="section-card" style="animation-delay:0.5s;border-top:4px solid var(--teal);">
+  <div class="section-header" onclick="toggleSection(this)" style="background:linear-gradient(135deg,#16a085,#1db8aa);">
+    <div class="section-num">🌟</div>
+    <div class="section-title-wrap"><h2>التأمل الذاتي</h2><p>فكّر في رحلتك التعليمية اليوم</p></div>
+    <span class="toggle-arrow">▼</span>
+  </div>
+  <div class="section-body">
+    <div class="reflection-grid">
+      <div class="reflect-item">
+        <label>⭐ كيف تقيّم فهمك لمادة اليوم؟</label>
+        <div class="stars-rating">
+          <input type="radio" id="s5" name="stars" value="5"><label for="s5">★</label>
+          <input type="radio" id="s4" name="stars" value="4"><label for="s4">★</label>
+          <input type="radio" id="s3" name="stars" value="3" checked><label for="s3">★</label>
+          <input type="radio" id="s2" name="stars" value="2"><label for="s2">★</label>
+          <input type="radio" id="s1" name="stars" value="1"><label for="s1">★</label>
+        </div>
+      </div>
+      <div class="reflect-item">
+        <label>😊 كيف شعرت أثناء التعلم؟</label>
+        <div class="emoji-rating">
+          <span class="emoji-choice" onclick="selectEmoji(this)">😄</span>
+          <span class="emoji-choice" onclick="selectEmoji(this)">🙂</span>
+          <span class="emoji-choice" onclick="selectEmoji(this)">😐</span>
+          <span class="emoji-choice" onclick="selectEmoji(this)">😕</span>
+          <span class="emoji-choice" onclick="selectEmoji(this)">😟</span>
+        </div>
+      </div>
+      <div class="reflect-item" style="grid-column:1/-1;">
+        <label>💭 ما أهم شيء تعلمته اليوم؟</label>
+        <textarea class="answer-area" placeholder="اكتب أهم ما تعلمته..."></textarea>
+      </div>
+      <div class="reflect-item">
+        <label>❓ ما الذي لا يزال يُربكك؟</label>
+        <textarea class="answer-area" placeholder="اكتب ملاحظاتك..."></textarea>
+      </div>
+      <div class="reflect-item">
+        <label>🚀 كيف ستستخدم ما تعلمته في حياتك؟</label>
+        <textarea class="answer-area" placeholder="اكتب تطبيقاً من حياتك..."></textarea>
+      </div>
+      <div class="reflect-item" style="grid-column:1/-1;">
+        <label>💌 رسالة إلى معلمتك منى مصطفى:</label>
+        <textarea class="answer-area" placeholder="اكتب رأيك في الدرس وأي اقتراحات لديك..."></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCORE TRACKER -->
+<div class="score-tracker">
+  <div class="score-circle"><span class="score-num" id="scoreNum">0</span><span class="score-label">نقطة</span></div>
+  <div class="score-details">
+    <h3>📈 تتبّع تقدّمك</h3>
+    <div class="score-bar-wrap"><div class="score-bar" id="scoreBar"></div></div>
+    <div class="score-msg" id="scoreMsg">أجب على الأسئلة التفاعلية لتجمع نقاطاً!</div>
+  </div>
+</div>
+
+<button class="submit-btn" onclick="submitWorksheet()">🎯 أنهِ ورقة العمل وأنشئ بطاقتك التشجيعية ⬇️</button>
+
+<!-- CERTIFICATE SECTION -->
+<div class="cert-section" id="certSection" style="display:none;">
+  <h3>🏆 بطاقتك التشجيعية جاهزة!</h3>
+  <p>شاركها مع أهلك وأصدقائك وافخر بإنجازك 🌟</p>
+  <canvas id="celebCanvas" width="600" height="380"></canvas>
+  <div class="cert-btns">
+    <button class="download-card-btn" onclick="downloadCard()">📥 تحميل البطاقة</button>
+    <button class="regen-btn" onclick="generateCard()">🔄 تجديد البطاقة</button>
+  </div>
+</div>
+
+</div><!-- end main-content -->
+
+<!-- NOTIFICATION -->
+<div class="notif" id="notif">✅ أحسنت!</div>
+
+<!-- MODAL for phenomena -->
+<div class="modal-overlay" id="phenomModal">
+  <div class="modal-box">
+    <img id="modalImg" src="" alt="">
+    <div class="modal-body">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <button class="modal-close" onclick="closeModal()">✕ إغلاق</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== STARS =====
+(function(){
+  const c=document.getElementById('starsContainer');
+  for(let i=0;i<30;i++){
+    const s=document.createElement('div');s.className='star';
+    const sz=Math.random()*2+1;
+    s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;
+    c.appendChild(s);
+  }
+})();
+document.getElementById('dateField').valueAsDate = new Date();
+
+// ===== SECTION TOGGLE =====
+function toggleSection(h){
+  const b=h.nextElementSibling,a=h.querySelector('.toggle-arrow'),o=b.classList.contains('open');
+  b.classList.toggle('open',!o);b.style.display=o?'none':'flex';
+  a.style.transform=o?'rotate(0deg)':'rotate(180deg)';
+}
+
+// ===== SCORE =====
+let score=0,maxScore=35;
+function addScore(pts=1){
+  score=Math.min(maxScore,score+pts);
+  document.getElementById('scoreNum').textContent=score;
+  document.getElementById('scoreBar').style.width=(score/maxScore*100)+'%';
+  const m=['أجب على الأسئلة التفاعلية لتجمع نقاطاً!','رائع! استمر 💪','ممتاز! في المسار الصحيح 🌟','أداء رائع! اقتربت من النهاية 🏆','ممتاز جداً! أداء متميز 🎉'];
+  document.getElementById('scoreMsg').textContent=m[Math.min(4,Math.floor(score/(maxScore/5)))];
+}
+
+// ===== NOTIFICATION =====
+let nTO;
+function showNotif(msg,wrong=false){
+  const n=document.getElementById('notif');
+  n.textContent=msg;n.className='notif'+(wrong?' wrong':'')+' show';
+  clearTimeout(nTO);nTO=setTimeout(()=>{n.className='notif';},2600);
+}
+
+// ===== PHENOMENA DATA =====
+const phenomena=[
+  {title:'⚡ البرق والرعد',
+   url:'https://images.unsplash.com/photo-1500964757637-c85e8a162699?w=800&q=80',
+   desc:'البرق ظاهرة فيزيائية كهربائية تحدث نتيجة تفريغ شحنات كهرستاتيكية هائلة بين الغيوم والأرض. الرعد هو الصوت الناتج عن التمدد السريع للهواء.'},
+  {title:'🌈 قوس قزح',
+   url:'https://images.unsplash.com/photo-1471958680802-1345a694ba6d?w=800&q=80',
+   desc:'قوس قزح ظاهرة فيزيائية ضوئية تحدث نتيجة انكسار الضوء وانعكاسه وتبعثره داخل قطرات الماء في الهواء مما يفصله إلى ألوان الطيف السبعة.'},
+  {title:'🌊 أمواج البحر',
+   url:'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&q=80',
+   desc:'الأمواج ظاهرة فيزيائية ميكانيكية ناتجة عن انتقال الطاقة عبر الماء. يتحرك الماء دائرياً في مكانه بينما تنتقل الطاقة للأمام.'},
+  {title:'🌌 الشفق القطبي',
+   url:'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80',
+   desc:'الشفق القطبي ظاهرة فيزيائية مذهلة تحدث عندما تتفاعل الجسيمات المشحونة القادمة من الشمس مع الغلاف المغناطيسي للأرض فتضيء السماء بألوان رائعة.'},
+  {title:'🌧️ المطر',
+   url:'https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=800&q=80',
+   desc:'المطر ظاهرة فيزيائية تحدث ضمن دورة الماء. تتبخر المياه بفعل الطاقة الشمسية ثم تتكثف في طبقات الجو العليا لتتشكل السحب وتسقط قطرات المطر.'},
+  {title:'🌍 الزلازل',
+   url:'https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&q=80',
+   desc:'الزلزال ظاهرة فيزيائية تحدث نتيجة تحرك الصفائح الأرضية وانبعاث موجات طاقة زلزالية. تنتشر هذه الموجات في كل الاتجاهات من بؤرة الزلزال.'},
+];
+let activePheномBtn=null;
+function showPhenom(i,btn){
+  const p=phenomena[i];
+  document.getElementById('phenomImg').src=p.url;
+  document.getElementById('phenomImg').alt=p.title;
+  document.getElementById('phenomTitle').textContent=p.title;
+  document.getElementById('phenomDesc').textContent=p.desc;
+  const d=document.getElementById('phenomDisplay');
+  d.classList.remove('show');void d.offsetWidth;d.classList.add('show');
+  document.querySelectorAll('.phenom-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  addScore(0);
+}
+
+// ===== CLASSIFY =====
+function doClassify(btn,choice,correct,id){
+  const row=btn.closest('.classify-row');
+  const res=document.getElementById(id);
+  if(choice===correct){
+    res.textContent='✅ صحيح!';res.style.color='var(--green)';
+    showNotif('✅ إجابة صحيحة! ممتاز');addScore(1);
+    row.querySelectorAll('.cls-btn').forEach(b=>{b.disabled=true;b.style.opacity='0.6';});
+    row.style.background='#f0faf4';row.style.borderColor='var(--green)';
+  }else{
+    res.textContent='❌ خطأ، حاول مجدداً';res.style.color='var(--red)';
+    showNotif('❌ ليست الإجابة الصحيحة، حاول مجدداً',true);
+    btn.style.opacity='0.5';btn.disabled=true;
+  }
+}
+
+// ===== DRAG WORDS =====
+let selectedWord=null;
+const physAns=['الكثافة','اللون','الطول','درجة الغليان'];
+const chemAns=['الاشتعال','الصدأ','التخمر','التفاعل مع الحمض'];
+function selectWord(el){
+  if(el.classList.contains('used'))return;
+  document.querySelectorAll('.drag-word').forEach(w=>w.classList.remove('selected-word'));
+  if(selectedWord===el){selectedWord=null;return;}
+  selectedWord=el;el.classList.add('selected-word');
+  showNotif('📌 الآن انقر على مربع لوضع الكلمة فيه');
+}
+function dropHere(el,type){
+  if(!selectedWord){showNotif('💡 اختر كلمة من البنك أولاً',true);return;}
+  if(el.dataset.filled)return;
+  el.textContent=selectedWord.textContent;el.dataset.filled=selectedWord.textContent;
+  el.classList.add('filled');
+  selectedWord.classList.add('used');selectedWord.classList.remove('selected-word');
+  selectedWord=null;
+}
+function checkDragAnswers(){
+  let cor=0,tot=0;
+  document.querySelectorAll('#physBox .fill-blank').forEach(el=>{
+    if(el.dataset.filled){tot++;if(physAns.includes(el.dataset.filled)){cor++;el.style.background='#f0faf4';el.style.borderColor='var(--green)';}else{el.style.background='#fff0f0';el.style.borderColor='var(--red)';}}
+  });
+  document.querySelectorAll('#chemBox .fill-blank').forEach(el=>{
+    if(el.dataset.filled){tot++;if(chemAns.includes(el.dataset.filled)){cor++;el.style.background='#f0faf4';el.style.borderColor='var(--green)';}else{el.style.background='#fff0f0';el.style.borderColor='var(--red)';}}
+  });
+  document.getElementById('dragResult').textContent=`✅ ${cor} من ${tot} إجابات صحيحة`;
+  document.getElementById('dragResult').style.color=cor===tot?'var(--green)':'var(--red)';
+  if(cor>0)addScore(cor);
+}
+function resetDrag(){
+  document.querySelectorAll('.fill-blank').forEach(el=>{el.textContent='انقر للوضع هنا';delete el.dataset.filled;el.classList.remove('filled');el.style.background='';el.style.borderColor='';});
+  document.querySelectorAll('.drag-word').forEach(w=>{w.classList.remove('used','selected-word');});
+  document.getElementById('dragResult').textContent='';selectedWord=null;
+}
+
+// ===== QNQ ACTIVITY =====
+const qnqData=[
+  {q:'🌡️ درجة الحرارة: 36.5°م',ans:'كمية'},{q:'🎨 لون الجسم',ans:'كيفية'},
+  {q:'⚖️ الكتلة: 75 كغ',ans:'كمية'},{q:'✨ لمعان المعدن',ans:'كيفية'},
+  {q:'📏 الطول: 180 سم',ans:'كمية'},{q:'👃 رائحة المادة',ans:'كيفية'},
+  {q:'⚡ شدة التيار: 5 أمبير',ans:'كمية'},{q:'🔨 صلابة الجسم',ans:'كيفية'},
+];
+const qnqEl=document.getElementById('qnqContainer');
+qnqData.forEach((item,i)=>{
+  const d=document.createElement('div');
+  d.className='classify-row';
+  d.innerHTML=`<span style="flex:1;font-size:0.88rem;">${item.q}</span>
+  <button class="cls-btn" style="background:#8e44ad;" onclick="checkQNQ(this,'كمية','${item.ans}','qnqr${i}')">كمية 🔢</button>
+  <button class="cls-btn" style="background:#1a3a8f;" onclick="checkQNQ(this,'كيفية','${item.ans}','qnqr${i}')">كيفية 🎨</button>
+  <span class="conv-result" id="qnqr${i}"></span>`;
+  qnqEl.appendChild(d);
+});
+function checkQNQ(btn,choice,ans,rid){
+  const res=document.getElementById(rid);const row=btn.closest('.classify-row');
+  if(choice===ans){res.textContent='✅ صحيح!';res.style.color='var(--green)';showNotif('✅ ممتاز!');addScore(1);row.querySelectorAll('.cls-btn').forEach(b=>{b.disabled=true;b.style.opacity='0.6';});row.style.background='#f0faf4';}
+  else{res.textContent='❌ '+ans;res.style.color='var(--red)';showNotif('❌ الإجابة: '+ans,true);btn.disabled=true;btn.style.opacity='0.5';}
+}
+
+// ===== UNIT CONVERSION CHECK =====
+function checkConv(id,ans,msg){
+  const v=parseFloat(document.getElementById(id).value);
+  const r=document.getElementById(id+'r');
+  if(isNaN(v)){r.textContent='أدخل قيمة أولاً';r.style.color='var(--red)';return;}
+  const tol=Math.abs(ans)*0.001+0.001;
+  if(Math.abs(v-ans)<=tol){r.textContent=msg;r.style.color='var(--green)';showNotif('✅ إجابة صحيحة!');addScore(1);document.getElementById(id).disabled=true;}
+  else{r.textContent='❌ حاول مجدداً (الجواب ليس '+ans+')';r.style.color='var(--red)';showNotif('❌ خطأ، راجع الحسابات',true);}
+}
+
+// ===== INSTRUMENT SIMULATOR =====
+const instrData={
+  ruler:[
+    {title:'مسطرة ١ - درجة كبيرة = 1 سم، سنّة = 0.1 سم',
+     url:'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80',
+     sanna:'0.1 سم',major:'1 سم',unit:'سم',q:'ما هي السنّة (أصغر درجة) لهذه المسطرة؟',ans:'0.1',hint:'سنّة = درجة كبيرة (1 سم) ÷ 10 أقسام = 0.1 سم'},
+    {title:'مسطرة ٢ - درجة كبيرة = 10 مم، سنّة = 1 مم',
+     url:'https://images.unsplash.com/photo-1543286386-713bdd548da4?w=600&q=80',
+     sanna:'1 مم',major:'10 مم',unit:'مم',q:'إذا أشار المؤشر إلى الخط السابع بعد 20 مم، ما القراءة؟',ans:'27',hint:'القراءة = 20 + 7×1 = 27 مم'},
+  ],
+  cylinder:[
+    {title:'مخبار مدرّج ١ - سعة 100 مل، سنّة = 1 مل',
+     url:'https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=600&q=80',
+     sanna:'1 مل',major:'10 مل',unit:'مل',q:'ما حجم السائل إذا كان السطح عند الخط 65؟',ans:'65',hint:'القراءة المباشرة = 65 مل'},
+    {title:'مخبار مدرّج ٢ - سعة 250 مل، سنّة = 5 مل',
+     url:'https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=600&q=80',
+     sanna:'5 مل',major:'50 مل',unit:'مل',q:'ما حجم السائل إذا وقع السطح بين 100 و 150، بعد خطين من 100؟',ans:'110',hint:'القراءة = 100 + 2×5 = 110 مل'},
+  ],
+  thermo:[
+    {title:'ميزان حرارة ١ - درجة كبيرة = 10°م، سنّة = 1°م',
+     url:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80',
+     sanna:'1°م',major:'10°م',unit:'°م',q:'إذا أشار الزئبق إلى خط 37°م، هل هذا طبيعي للجسم؟',ans:'37',hint:'نعم! درجة الحرارة الطبيعية للجسم = 37°م'},
+    {title:'ميزان حرارة ٢ - درجة كبيرة = 10°م، سنّة = 0.5°م',
+     url:'https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=600&q=80',
+     sanna:'0.5°م',major:'10°م',unit:'°م',q:'إذا أشار الزئبق بين 38 و39، بعد قسم واحد من 38، ما القراءة؟',ans:'38.5',hint:'القراءة = 38 + 1×0.5 = 38.5°م'},
+  ],
+};
+function showInstruments(){
+  const type=document.getElementById('instrSelect').value;
+  const wrap=document.getElementById('instrCardsWrap');
+  if(!type){wrap.innerHTML='';return;}
+  const items=instrData[type];
+  let html='<div class="instr-cards">';
+  items.forEach((item,i)=>{
+    html+=`<div class="instr-card">
+      <img class="instr-card-img" src="${item.url}" alt="${item.title}" loading="lazy">
+      <div class="instr-card-body">
+        <h5>${item.title}</h5>
+        <div class="instr-info">
+          <span>الدرجة الكبيرة: ${item.major}</span>
+          <span>السنّة: ${item.sanna}</span>
+          <span>الوحدة: ${item.unit}</span>
+        </div>
+        <div class="instr-q">❓ ${item.q}</div>
+        <div class="instr-answer-row">
+          <input type="text" id="instr_${type}_${i}" placeholder="إجابتك...">
+          <button class="check-btn" onclick="checkInstr('${type}',${i},'${item.ans}','${item.hint}')">✅</button>
+        </div>
+        <div class="instr-result" id="instrR_${type}_${i}"></div>
+      </div>
+    </div>`;
+  });
+  html+='</div>';
+  wrap.innerHTML=html;
+}
+function checkInstr(type,i,ans,hint){
+  const v=document.getElementById(`instr_${type}_${i}`).value.trim();
+  const r=document.getElementById(`instrR_${type}_${i}`);
+  if(parseFloat(v)===parseFloat(ans)||v===ans){
+    r.textContent='✅ صحيح! '+hint;r.style.color='var(--green)';showNotif('✅ قراءة ممتازة!');addScore(1);
+  }else{
+    r.textContent='❌ راجع: '+hint;r.style.color='var(--red)';showNotif('❌ غير صحيح',true);
+  }
+}
+
+// ===== ARCHIMEDES SIMULATION =====
+let archObj={vol:35,name:'حجر صغير',icon:'🪨'};
+const archCanvas=document.getElementById('archCanvas');
+const ctx=archCanvas.getContext('2d');
+function selectArchObj(btn,vol,name,icon){
+  document.querySelectorAll('.arch-obj-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  archObj={vol,name,icon};
+  document.getElementById('v1show').textContent='100 مل';
+  document.getElementById('v2show').textContent=(100+vol)+' مل';
+  document.getElementById('archInput').value='';
+  document.getElementById('archFinal').textContent='';
+  drawArch(100,100+vol,vol,icon);
+}
+function drawArch(v1,v2,vol,icon){
+  const W=260,H=280;ctx.clearRect(0,0,W,H);
+  // Cylinder background
+  const grad=ctx.createLinearGradient(0,0,W,0);
+  grad.addColorStop(0,'#e8f7ff');grad.addColorStop(1,'#d0ecff');
+  ctx.fillStyle=grad;ctx.beginPath();ctx.roundRect(30,10,200,250,10);ctx.fill();
+  ctx.strokeStyle='#4a9fd4';ctx.lineWidth=3;ctx.stroke();
+  // Scale lines
+  ctx.font='bold 9px Arial';ctx.fillStyle='#2a7aa8';ctx.textAlign='right';
+  for(let l=0;l<=10;l++){
+    const y=240-l*20;const val=l*20;
+    ctx.strokeStyle='rgba(100,160,200,0.5)';ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(32,y);ctx.lineTo(228,y);ctx.stroke();
+    ctx.fillStyle='#1a5a8a';ctx.fillText(val+'',27,y+4);
+  }
+  // Water before
+  const wL1=240-(v1/200)*200;
+  const wGrad=ctx.createLinearGradient(0,wL1,0,240);
+  wGrad.addColorStop(0,'rgba(100,190,255,0.55)');wGrad.addColorStop(1,'rgba(30,100,200,0.8)');
+  ctx.fillStyle=wGrad;ctx.fillRect(33,wL1,194,240-wL1);
+  // V1 line
+  ctx.setLineDash([5,3]);ctx.strokeStyle='#2980b9';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(30,wL1);ctx.lineTo(230,wL1);ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='#2980b9';ctx.textAlign='left';ctx.font='bold 9px Arial';
+  ctx.fillText('V₁='+v1+'ml',234,wL1+4);
+  // Object
+  const oR=Math.sqrt(vol)*2.8;
+  const cX=130,cY=Math.min(wL1+oR+6,210);
+  // Draw icon as text
+  ctx.font=`${Math.min(oR*1.8,38)}px Arial`;ctx.textAlign='center';
+  ctx.fillText(icon,cX,cY+oR*0.4);
+  // V2 line
+  const wL2=240-(v2/200)*200;
+  ctx.setLineDash([5,3]);ctx.strokeStyle='#c0392b';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(30,wL2);ctx.lineTo(230,wL2);ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='#c0392b';ctx.textAlign='left';
+  ctx.fillText('V₂='+v2+'ml',234,wL2+4);
+  // Arrow showing difference
+  if(wL1!==wL2){
+    ctx.strokeStyle='#c0392b';ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(222,wL1);ctx.lineTo(222,wL2);ctx.stroke();
+    ctx.fillStyle='#c0392b';ctx.textAlign='center';ctx.font='bold 9px Arial';
+    ctx.fillText('Δ='+vol,245,(wL1+wL2)/2+4);
+  }
+  // Label
+  ctx.fillStyle='#1a3a8f';ctx.font='bold 11px Cairo,Arial';ctx.textAlign='center';
+  ctx.fillText('مخبار مدرّج',130,268);
+}
+function checkArch(){
+  const v=parseFloat(document.getElementById('archInput').value);
+  const r=document.getElementById('archFinal');
+  if(isNaN(v)){r.textContent='أدخل قيمتك أولاً';r.style.color='var(--red)';return;}
+  if(Math.abs(v-archObj.vol)<0.5){
+    r.textContent=`✅ ممتاز! حجم ${archObj.name} = ${archObj.vol} مل | V₂−V₁ = ${100+archObj.vol}−100 = ${archObj.vol} مل`;
+    r.style.color='var(--green)';showNotif('✅ إجابة صحيحة!');addScore(2);
+  }else{
+    r.textContent=`❌ راجع: V₂−V₁ = ${100+archObj.vol} − 100 = ${archObj.vol} مل`;
+    r.style.color='var(--red)';showNotif('❌ خطأ، راجع الحساب',true);
+  }
+}
+// initial draw
+drawArch(100,135,35,'🪨');
+
+// ===== EMOJI =====
+function selectEmoji(el){document.querySelectorAll('.emoji-choice').forEach(e=>e.classList.remove('selected'));el.classList.add('selected');}
+
+// ===== SUBMIT =====
+function submitWorksheet(){
+  const name=document.getElementById('studentName').value.trim();
+  if(!name){showNotif('✏️ اكتب اسمك أولاً',true);document.getElementById('studentName').focus();return;}
+  showNotif(`🎉 أحسنت ${name}! ورقة العمل مكتملة`);
+  addScore(3);
+  const cs=document.getElementById('certSection');
+  cs.style.display='block';
+  cs.scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(()=>generateCard(),400);
+  document.querySelector('.submit-btn').textContent='✅ تم! اطّلع على بطاقتك أدناه 👇';
+  document.querySelector('.submit-btn').style.background='linear-gradient(135deg,var(--green),#2ecc71)';
+}
+
+// ===== CERTIFICATE CARD GENERATOR =====
+const messages=[
+  'نجمة ساطعة في سماء الفيزياء! 🌟',
+  'عقل علمي متميز يصنع المستقبل! 🚀',
+  'موهبة استثنائية وفضول لا حدود له! 🔭',
+  'مستكشف المعرفة وفارس العلم! ⚗️',
+  'بداية رائعة في رحلة الاكتشاف العلمي! 💡',
+  'إبداع وتميز في كل خطوة تعليمية! 🏆',
+];
+function generateCard(){
+  const name=document.getElementById('studentName').value||'الطالب/ة';
+  const pct=Math.round((score/maxScore)*100);
+  let level='مجتهد ومتميز';
+  if(pct>=90)level='ممتاز استثنائي';
+  else if(pct>=75)level='متفوق في العلوم';
+  else if(pct>=60)level='مجتهد ومتميز';
+  else level='على طريق النجاح';
+  const msg=messages[Math.floor(Math.random()*messages.length)];
+  const canvas=document.getElementById('celebCanvas');
+  const c=canvas.getContext('2d');
+  const W=600,H=380;
+  // Background gradient
+  const bg=c.createLinearGradient(0,0,W,H);
+  bg.addColorStop(0,'#0d1b3e');bg.addColorStop(0.4,'#1a3a8f');bg.addColorStop(1,'#1db8aa');
+  c.fillStyle=bg;c.fillRect(0,0,W,H);
+  // Stars decoration
+  c.fillStyle='rgba(255,255,255,0.6)';
+  for(let i=0;i<50;i++){const x=Math.random()*W,y=Math.random()*H,r=Math.random()*1.8+0.3;c.beginPath();c.arc(x,y,r,0,6.28);c.fill();}
+  // Glow circle
+  const glow=c.createRadialGradient(W/2,H/2,10,W/2,H/2,160);
+  glow.addColorStop(0,'rgba(245,166,35,0.18)');glow.addColorStop(1,'transparent');
+  c.fillStyle=glow;c.fillRect(0,0,W,H);
+  // Main card area (semi-transparent)
+  c.fillStyle='rgba(255,255,255,0.07)';
+  c.beginPath();c.roundRect(30,30,W-60,H-60,22);c.fill();
+  c.strokeStyle='rgba(245,166,35,0.6)';c.lineWidth=2;
+  c.beginPath();c.roundRect(30,30,W-60,H-60,22);c.stroke();
+  // Trophy icon
+  c.font='54px Arial';c.textAlign='center';
+  c.fillText('🏆',W/2,100);
+  // Title
+  c.fillStyle='#f5a623';c.font='bold 16px Cairo,Arial';c.textAlign='center';
+  c.fillText('بطاقة إنجاز في الفيزياء',W/2,130);
+  // Student name
+  c.fillStyle='white';c.font='bold 30px Cairo,Arial';c.textAlign='center';
+  c.shadowColor='rgba(245,166,35,0.5)';c.shadowBlur=14;
+  c.fillText(name,W/2,178);
+  c.shadowBlur=0;
+  // Level badge
+  const lx=W/2,ly=210;
+  const tw=c.measureText(level).width+40;
+  const grad2=c.createLinearGradient(lx-tw/2,0,lx+tw/2,0);
+  grad2.addColorStop(0,'#e8a020');grad2.addColorStop(1,'#f5c842');
+  c.fillStyle=grad2;c.beginPath();c.roundRect(lx-tw/2,ly-18,tw,30,14);c.fill();
+  c.fillStyle='white';c.font='bold 14px Cairo,Arial';c.textAlign='center';
+  c.fillText(level,lx,ly+7);
+  // Message
+  c.fillStyle='rgba(255,255,255,0.9)';c.font='15px Cairo,Arial';c.textAlign='center';
+  c.fillText(msg,W/2,263);
+  // Score
+  c.fillStyle='rgba(29,184,170,0.85)';
+  c.beginPath();c.roundRect(W/2-80,282,160,32,12);c.fill();
+  c.fillStyle='white';c.font='bold 14px Cairo,Arial';c.textAlign='center';
+  c.fillText('النقاط: '+score+' / '+maxScore+'  •  '+pct+'%',W/2,303);
+  // Signature
+  c.strokeStyle='rgba(255,255,255,0.25)';c.lineWidth=1;
+  c.beginPath();c.moveTo(60,335);c.lineTo(W-60,335);c.stroke();
+  c.fillStyle='rgba(255,255,255,0.6)';c.font='12px Cairo,Arial';c.textAlign='center';
+  c.fillText('بتوقيع المعلمة  منى مصطفى  |  مادة الفيزياء  |  الصف السابع',W/2,356);
+  // Stars decoration bottom
+  c.fillStyle='#f5a623';
+  [80,W/2,W-80].forEach(sx=>{c.font='16px Arial';c.fillText('⭐',sx,356);});
+}
+function downloadCard(){
+  const name=document.getElementById('studentName').value||'طالب';
+  const link=document.createElement('a');
+  link.download=`بطاقة_انجاز_${name}_الفيزياء.png`;
+  link.href=document.getElementById('celebCanvas').toDataURL('image/png');
+  link.click();
+  showNotif('📥 تم تحميل البطاقة!');
+}
+function closeModal(){document.getElementById('phenomModal').classList.remove('open');}
+</script>
+</body>
+</html>
